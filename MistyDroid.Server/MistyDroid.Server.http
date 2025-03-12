@@ -1,0 +1,6 @@
+@MistyDroid.Server_HostAddress = http://localhost:5191
+
+GET {{MistyDroid.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

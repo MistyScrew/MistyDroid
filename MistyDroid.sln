@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MistyDroid.Server", "MistyDroid.Server\MistyDroid.Server.csproj", "{BDD1FA71-5019-486B-B7D8-F1454B7E63EF}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "mistydroid.client", "mistydroid.client\mistydroid.client.esproj", "{B5728480-DB1A-444B-B326-453B2E843AE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDD1FA71-5019-486B-B7D8-F1454B7E63EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDD1FA71-5019-486B-B7D8-F1454B7E63EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDD1FA71-5019-486B-B7D8-F1454B7E63EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDD1FA71-5019-486B-B7D8-F1454B7E63EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5728480-DB1A-444B-B326-453B2E843AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5728480-DB1A-444B-B326-453B2E843AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5728480-DB1A-444B-B326-453B2E843AE2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B5728480-DB1A-444B-B326-453B2E843AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5728480-DB1A-444B-B326-453B2E843AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5728480-DB1A-444B-B326-453B2E843AE2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F495534-5557-49C3-A765-AEB5A9152BEC}
+	EndGlobalSection
+EndGlobal
