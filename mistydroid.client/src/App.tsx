@@ -1,56 +1,41 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-interface Forecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
-}
 
 function App() {
-    const [forecasts, setForecasts] = useState<Forecast[]>();
+    //const [screenshot, setScreenshot] = useState<Uint8Array>();
+    const [screenshotId, setScreenshotId] = useState<number>();
 
     useEffect(() => {
-        populateWeatherData();
+        setScreenshotId(1);
     }, []);
 
-    const contents = forecasts === undefined
+    const contents = screenshotId === undefined
         ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
+        : (
+        <div>
+                <img src={`api/session/gumballs/screenshot/${screenshotId}`} width="500px" />
+                <button onClick={refreshScreenshot} >refresh</button>
+        </div>
+        );
 
     return (
         <div>
-            <h1 id="tableLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
+            {/*<h1 id="tableLabel">MistyDroid</h1>*/}
             {contents}
         </div>
     );
 
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        setForecasts(data);
+    function refreshScreenshot() {
+        setScreenshotId((screenshotId ?? 0) + 1);
     }
+
+    //async function populateScreenshot() {
+    //    const response = await fetch('api/session/gumballs/screenshot');
+    //    const screenshot = await response.bytes();
+    //    setScreenshot(screenshot);
+    //}
+
 }
 
 export default App;

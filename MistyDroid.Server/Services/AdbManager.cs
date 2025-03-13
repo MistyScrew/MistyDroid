@@ -4,6 +4,8 @@ using System.Collections.Immutable;
 namespace MistyDroid.Server.Services;
 
 //C:\Users\Mist\AppData\Local\Android\Sdk\platform-tools
+//adb connect localhost:5555
+//adb devices
 
 public class AdbManager
 {

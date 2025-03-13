@@ -8,8 +8,8 @@ namespace MistyDroid.Server.Controllers;
 [ApiController]
 public class SessionController(AdbManager adbManager) : ControllerBase
 {
-    [HttpGet("session/{sessionName}/screenshot")]
-    public async Task<FileResult> Screenshot(string sessionName)
+    [HttpGet("session/{sessionName}/screenshot/{screenshotId}")]
+    public async Task<FileResult> Screenshot(string sessionName, string screenshotId)
     {
         var session = adbManager.GetOrCreateSession(sessionName);
 
