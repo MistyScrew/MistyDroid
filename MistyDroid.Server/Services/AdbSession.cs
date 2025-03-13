@@ -1,4 +1,5 @@
 ﻿using AdvancedSharpAdbClient;
+using AdvancedSharpAdbClient.DeviceCommands;
 using AdvancedSharpAdbClient.Models;
 using Emgu.CV;
 using Emgu.CV.Structure;
@@ -34,6 +35,19 @@ public class AdbSession
         return await File.ReadAllBytesAsync(screenshotFilename);
 
     }
+
+    public async Task Click(Point p)
+    {
+        await adbClient.ClickAsync(device, new System.Drawing.Point(p.X, p.Y));
+    }
+}
+
+
+public class Point
+{
+    public int X { get; init; }
+    public int Y { get; init; }
+
 }
 
 

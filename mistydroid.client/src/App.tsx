@@ -3,7 +3,6 @@ import './App.css';
 
 
 function App() {
-    //const [screenshot, setScreenshot] = useState<Uint8Array>();
     const [screenshotId, setScreenshotId] = useState<number>();
 
     useEffect(() => {
@@ -13,8 +12,8 @@ function App() {
     const contents = screenshotId === undefined
         ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
         : (
-        <div>
-                <img src={`api/session/gumballs/screenshot/${screenshotId}`} width="500px" />
+            <div>
+                <img src={`api/session/gumballs/screenshot/${screenshotId}`} width="600px" onMouseDown={screenshotClick} />
                 <button onClick={refreshScreenshot} >refresh</button>
         </div>
         );
@@ -26,15 +25,36 @@ function App() {
         </div>
     );
 
+    function screenshotClick(event: React.MouseEvent<HTMLImageElement, MouseEvent>) {
+        var k = 900 / 600;
+
+        console.log(event);
+
+        gameClick(Math.round(event.nativeEvent.offsetX * k), Math.round(event.nativeEvent.offsetY * k));
+    }
+
     function refreshScreenshot() {
         setScreenshotId((screenshotId ?? 0) + 1);
     }
 
-    //async function populateScreenshot() {
-    //    const response = await fetch('api/session/gumballs/screenshot');
-    //    const screenshot = await response.bytes();
-    //    setScreenshot(screenshot);
-    //}
+    async function gameClick(x: number, y: number) {
+        await fetch('api/session/gumballs/click',
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ point: { x: x, y: y } }),
+            });
+
+        await sleep(700);
+
+        refreshScreenshot();
+    }
+
+    function sleep(ms: number) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
 }
 

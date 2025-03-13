@@ -17,4 +17,19 @@ public class SessionController(AdbManager adbManager) : ControllerBase
 
         return File(screenshot, "image/png");
     }
+
+    [HttpPost("session/{sessionName}/click")]
+    public async Task<object> Click(string sessionName, [FromBody]ClickInfo clickInfo)
+    {
+        var session = adbManager.GetOrCreateSession(sessionName);
+        await session.Click(clickInfo.Point);
+
+        return new { };
+    }
 }
+
+public class ClickInfo
+{
+    public required Point Point { get; init; }
+}
+
