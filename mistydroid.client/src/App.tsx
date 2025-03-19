@@ -26,7 +26,7 @@ function App() {
     );
 
     function screenshotClick(event: React.MouseEvent<HTMLImageElement, MouseEvent>) {
-        var k = 900 / 600;
+        const k = 900 / 600;
 
         console.log(event);
 
